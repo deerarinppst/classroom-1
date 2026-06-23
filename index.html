@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ff8fb1">
+  <meta name="description" content="ห้องเรียนมหัศจรรย์ ตามล่ามาตราตัวสะกด เกมการเรียนรู้ภาษาไทยสำหรับเด็ก">
+  <title>ห้องเรียนมหัศจรรย์ ตามล่ามาตราตัวสะกด</title>
+  <link rel="stylesheet" href="style.css?v=20260622-motion">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar" id="topbar" hidden>
+      <button class="home-button" id="homeButton" aria-label="กลับห้องเรียน">🏫 <span>ห้องเรียน</span></button>
+      <div class="scoreboard" aria-label="ของสะสม">
+        <div class="score-pill"><span>⭐</span><b id="starCount">0</b></div>
+        <div class="score-pill"><span>🔑</span><b id="keyCount">0</b></div>
+        <div class="score-pill"><span>🎴</span><b id="cardCount">0</b><small>/40</small></div>
+      </div>
+      <button class="sound-button" id="soundButton" aria-label="เปิดหรือปิดเสียง">🔊</button>
+    </header>
+
+    <main>
+      <section class="screen welcome-screen active" id="welcomeScreen">
+        <div class="sky-decor" aria-hidden="true">
+          <span class="cloud cloud-a">☁️</span>
+          <span class="cloud cloud-b">☁️</span>
+          <span class="sparkle sparkle-a">✦</span>
+          <span class="sparkle sparkle-b">✦</span>
+        </div>
+        <div class="welcome-card">
+          <div class="teacher hero-teacher" aria-label="คุณครูมิ้นท์">
+            <div class="teacher-hair"></div>
+            <div class="teacher-head">
+              <span class="eye left"></span><span class="eye right"></span>
+              <span class="smile"></span>
+            </div>
+            <div class="teacher-body">
+              <span class="teacher-badge">ก ข</span>
+            </div>
+            <div class="teacher-arm arm-left"></div>
+            <div class="teacher-arm arm-right wave"></div>
+          </div>
+          <div class="welcome-copy">
+            <span class="mini-label">🌈 การผจญภัยภาษาไทย</span>
+            <h1>ห้องเรียนมหัศจรรย์</h1>
+            <h2>ตามล่ามาตราตัวสะกด</h2>
+            <p>ตัวสะกดทั้ง 8 มาตราหายไปแล้ว! มาช่วยคุณครูมิ้นท์ตามหาคำศัพท์ เพื่อเปิดประตูห้องลับกันเถอะ</p>
+            <button class="primary-button bounce" id="startButton">เริ่มภารกิจ <span>🚀</span></button>
+          </div>
+        </div>
+        <p class="welcome-tip">เหมาะสำหรับนักสำรวจตัวน้อย อายุ 5–9 ปี</p>
+      </section>
+
+      <section class="screen classroom-screen" id="classroomScreen">
+        <div class="mission-banner">
+          <div>
+            <span class="eyebrow">ภารกิจวันนี้</span>
+            <h2>สำรวจห้องเรียนมหัศจรรย์</h2>
+          </div>
+          <p id="unlockHint">สะสม ⭐ 5 ดวง และ 🔑 3 ดอก เพื่อเปิดห้องลับ</p>
+        </div>
+
+        <div class="classroom" aria-label="ห้องเรียนเสมือน">
+          <div class="ceiling-lamp lamp-one"></div>
+          <div class="ceiling-lamp lamp-two"></div>
+          <div class="wall-bunting" aria-hidden="true">▲ ● ★ ● ▲ ★ ● ▲</div>
+
+          <button class="hotspot blackboard" data-mission="blackboard">
+            <span class="board-writing">ก ข ค<br><small>กระดานปริศนา</small></span>
+            <span class="hotspot-label">1. กระดานดำ</span>
+          </button>
+
+          <button class="hotspot bookshelf" data-mission="bookshelf">
+            <span class="shelf-row"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="shelf-row"><i></i><i></i><i></i><i></i></span>
+            <span class="hotspot-label">2. ชั้นหนังสือ</span>
+          </button>
+
+          <button class="hotspot teacher-desk" data-mission="desk">
+            <span class="desk-items">🍎 ✏️</span>
+            <span class="desk-front">โต๊ะครู</span>
+            <span class="hotspot-label">3. โต๊ะคุณครู</span>
+          </button>
+
+          <button class="hotspot window-spot" data-mission="window">
+            <span class="window-sky">☁️<br>🌳</span>
+            <span class="hotspot-label">4. หน้าต่าง</span>
+          </button>
+
+          <button class="hotspot word-tree" data-mission="tree">
+            <span class="tree-crown">🍎 🍊<br>🍋 🍎 🍊</span>
+            <span class="tree-trunk"></span>
+            <span class="hotspot-label">5. ต้นไม้คำศัพท์</span>
+          </button>
+
+          <button class="hotspot treasure" data-mission="treasure">
+            <span class="treasure-lid">✨</span>
+            <span class="treasure-box">🔒</span>
+            <span class="hotspot-label">6. กล่องสมบัติ</span>
+          </button>
+
+          <button class="hotspot locker" data-mission="locker">
+            <span class="locker-door">🧩<br><i></i></span>
+            <span class="locker-door">ก _<br><i></i></span>
+            <span class="hotspot-label">7. ตู้จิ๊กซอว์</span>
+          </button>
+
+          <button class="hotspot clock" data-mission="clock">
+            <span class="clock-face"><i></i><b></b></span>
+            <span class="hotspot-label">8. นาฬิกา</span>
+          </button>
+
+          <button class="hotspot gacha" data-mission="gacha">
+            <span class="gacha-globe">🔴 🟡<br>🟢 🔵</span>
+            <span class="gacha-base">หมุน</span>
+            <span class="hotspot-label">9. กาชาปอง</span>
+          </button>
+
+          <button class="hotspot secret-door locked" data-mission="secret" id="secretDoor">
+            <span class="door-sign">ห้องลับ<br><b id="doorLock">🔒</b></span>
+            <span class="door-knob"></span>
+            <span class="hotspot-label">10. ประตูห้องลับ</span>
+          </button>
+
+          <div class="floor-rug" aria-label="พรมตกแต่ง"></div>
+        </div>
+
+        <div class="mission-guide">
+          <span>💡</span>
+          <p><b>แตะสิ่งของในห้องได้เลย!</b><br>แต่ละจุดมีเกมและความลับซ่อนอยู่</p>
+        </div>
+        <button class="reset-game-button" id="resetGameButton">🔄 เริ่มเกมใหม่</button>
+      </section>
+
+      <section class="screen secret-screen" id="secretScreen">
+        <div class="fireworks" aria-hidden="true">
+          <span>🎆</span><span>✨</span><span>🎇</span>
+        </div>
+        <div class="secret-card">
+          <div class="trophy">🏆</div>
+          <span class="mini-label">ห้องลับแห่งภาษาไทย</span>
+          <h1>ยินดีด้วย!</h1>
+          <h2>หนูคือนักสำรวจมาตราตัวสะกดตัวจริง</h2>
+          <p>หนูใช้ทั้งความรู้ ความกล้า และความพยายาม จนตามหาตัวสะกดกลับมาได้สำเร็จ!</p>
+          <div class="certificate">
+            <span>📜 ประกาศนียบัตรนักสำรวจภาษาไทย</span>
+            <strong id="finalScore">⭐ 0 ดวง · 🔑 0 ดอก</strong>
+          </div>
+          <button class="primary-button" id="returnButton">กลับไปสำรวจต่อ 🏫</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" id="missionModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-button" id="closeModal" aria-label="ปิด">×</button>
+      <div class="modal-heading">
+        <span class="modal-icon" id="modalIcon">✨</span>
+        <div>
+          <span class="eyebrow" id="modalEyebrow">ภารกิจ</span>
+          <h2 id="modalTitle">ชื่อภารกิจ</h2>
+        </div>
+      </div>
+      <div class="modal-content" id="modalContent"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <script src="script.js?v=20260622-motion"></script>
+</body>
+</html>
